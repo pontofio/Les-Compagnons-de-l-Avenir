@@ -43,68 +43,101 @@
             </div>
         </section>
 
-        <section id="mindmap-tree" class="section reveal">
+        <section id="cross-flow-map" class="section reveal">
     <div class="section-header">
-        <h2>L'Architecture du Projet</h2>
-        <p class="subtitle">Cliquez sur les cases pour déployer l'arborescence</p>
+        <h2>L'Écosystème Global</h2>
+        <p class="subtitle">Cliquez sur les éléments affichés pour révéler la suite du parcours...</p>
     </div>
 
-    <div class="tree-wrapper">
-        <div class="tree-container">
+    <div class="cross-map-container">
+        
+        <div class="map-node vertical-node start-node" id="node-prison" data-step="prison" data-next="atelier">
+            <span class="icon">🏢</span>
+            <div class="node-text">
+                <strong>Incarcération</strong>
+                <small>Centre Pénitentiaire</small>
+            </div>
+            <span class="click-instruction">Cliquez ici 👇</span>
+        </div>
+
+        <div class="arrow-vertical step-hidden" id="arrow-to-atelier-v">↓</div>
+
+        <div class="horizontal-row">
             
-            <div class="node-wrapper">
-                <div class="mm-node root-node" id="root-trigger">
-                    <strong>Compagnons<br>de l'Avenir</strong>
+            <div class="map-node horizontal-node start-node" id="node-ressource" data-step="ressource" data-next="atelier">
+                <span class="icon">🌲</span>
+                <div class="node-text">
+                    <strong>Ressource</strong>
+                    <small>Bois Local</small>
                 </div>
             </div>
 
-            <div class="connector-line horizontal hidden" id="root-connector"></div>
+            <div class="arrow-horizontal step-hidden" id="arrow-to-atelier-h">➜</div>
 
-            <div class="branch-column hidden" id="level-1-wrapper">
-                
-                <div class="branch-item">
-                    <div class="node-group">
-                        <div class="connector-line vertical-top"></div> <div class="mm-node level-1" onclick="toggleBranch('b1')">
-                            <span>🌲 Ressources</span>
-                        </div>
-                        <div class="connector-line horizontal-small hidden" id="line-b1"></div>
+            <div class="map-node center-hub step-hidden" id="node-atelier" data-step="atelier" data-next="usage">
+                <span class="hub-icon">🔨</span>
+                <div class="node-text">
+                    <strong>L'ATELIER</strong>
+                    <small>Fabrication &<br>Formation</small>
+                </div>
+            </div>
+
+            <div class="arrow-horizontal step-hidden" id="arrow-to-usage">➜</div>
+
+            <div class="map-node horizontal-node step-hidden" id="node-usage" data-step="usage" data-next="decision">
+                <span class="icon">🏛️</span>
+                <div class="node-text">
+                    <strong>Usage</strong>
+                    <small>Ville & Écoles</small>
+                </div>
+            </div>
+
+            <div class="arrow-horizontal step-hidden" id="arrow-to-decision">➜</div>
+
+            <div class="decision-group step-hidden" id="group-decision">
+                <div class="map-node diamond-decision" id="node-decision" data-step="decision" data-next="branches">
+                    <span>?</span>
+                </div>
+                <div class="decision-branches step-hidden" id="group-branches">
+                    <div class="branch-up" data-step="reparation" data-next="sortie">
+                        <span class="branch-label">Réparation ⤴</span>
                     </div>
-                    <div class="leaves-column hidden" id="leaves-b1">
-                        <div class="mm-node level-2">Bois Forêt<br>de Chantilly</div>
-                        <div class="mm-node level-2">Matériaux<br>Biosourcés</div>
+                    <div class="branch-down" data-step="copeaux" data-next="sortie">
+                        <span class="branch-label">⤵ Copeaux</span>
                     </div>
                 </div>
+            </div>
 
-                <div class="branch-item">
-                    <div class="node-group">
-                        <div class="connector-line vertical-middle"></div> <div class="mm-node level-1" onclick="toggleBranch('b2')">
-                            <span>🔨 Fabrication</span>
-                        </div>
-                        <div class="connector-line horizontal-small hidden" id="line-b2"></div>
-                    </div>
-                    <div class="leaves-column hidden" id="leaves-b2">
-                        <div class="mm-node level-2">Atelier<br>Prison</div>
-                        <div class="mm-node level-2">Formation<br>Certifiante</div>
-                    </div>
-                </div>
+        </div>
 
-                <div class="branch-item">
-                    <div class="node-group">
-                        <div class="connector-line vertical-bottom"></div> <div class="mm-node level-1" onclick="toggleBranch('b3')">
-                            <span>❤️ Impact & Vie</span>
-                        </div>
-                        <div class="connector-line horizontal-small hidden" id="line-b3"></div>
-                    </div>
-                    <div class="leaves-column hidden" id="leaves-b3">
-                        <div class="mm-node level-2">Mobilier<br>Police / Écoles</div>
-                        <div class="mm-node level-2">Anti-Récidive<br>& Insertion</div>
-                        <div class="mm-node level-2">Recyclage<br>(Copeaux)</div>
-                    </div>
-                </div>
+        <div class="arrow-vertical step-hidden" id="arrow-to-sortie">↓</div>
 
+        <div class="map-node vertical-node step-hidden" id="node-sortie" data-step="sortie">
+            <span class="icon">🎓</span>
+            <div class="node-text">
+                <strong>La Sortie</strong>
+                <small>Insertion & Avenir</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="cross-details" class="cross-details-box hidden-box">
+        <div class="details-header">
+            <h3 id="cd-title">Détails de l'étape</h3>
+        </div>
+        <div class="details-body">
+            <div class="d-col d-matter">
+                <h4>📦 Flux Matière</h4>
+                <p id="cd-matter">...</p>
+            </div>
+            <div class="d-col d-human">
+                <h4>🤝 Flux Humain</h4>
+                <p id="cd-human">...</p>
             </div>
         </div>
     </div>
+
 </section>
 
         <section id="cycle" class="section bg-light reveal">
