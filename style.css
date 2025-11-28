@@ -94,12 +94,40 @@ body::before {
 .text-block h3::after { content: ''; display: block; width: 50px; height: 3px; background: #10B981; position: absolute; bottom: 0; left: 0; }
 
 /* CYCLE VERTUEUX RECENTRÉ */
+/* NOUVEAU BLOC : Alignement parfait en Grille */
 .steps-container {
-    display: flex; justify-content: center; flex-wrap: wrap; gap: 30px; text-align: center;
+    display: grid;
+    /* On force 4 colonnes égales sur ordinateur */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; /* Espacement un peu réduit pour que tout rentre */
+    text-align: center;
+    width: 100%;
 }
+
 .step {
-    flex: 0 1 220px; padding: 30px 20px; background: white; border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: transform 0.3s;
+    /* On enlève le flex qui ne sert plus */
+    padding: 30px 20px; 
+    background: white; 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+    transition: transform 0.3s;
+    /* S'assure que la carte remplit sa colonne */
+    width: 100%; 
+}
+
+/* RESPONSIVE : Pour gérer les tablettes et mobiles proprement */
+@media (max-width: 1024px) {
+    .steps-container {
+        /* Sur tablette/petit écran, on passe en carré 2x2 (très propre) */
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
+
+@media (max-width: 600px) {
+    .steps-container {
+        /* Sur mobile, une seule colonne */
+        grid-template-columns: 1fr; 
+    }
 }
 .step:hover { transform: translateY(-10px); }
 .step-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
