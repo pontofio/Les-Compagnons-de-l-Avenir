@@ -43,6 +43,70 @@
             </div>
         </section>
 
+        <section id="mindmap-tree" class="section reveal">
+    <div class="section-header">
+        <h2>L'Architecture du Projet</h2>
+        <p class="subtitle">Cliquez sur les cases pour déployer l'arborescence</p>
+    </div>
+
+    <div class="tree-wrapper">
+        <div class="tree-container">
+            
+            <div class="node-wrapper">
+                <div class="mm-node root-node" id="root-trigger">
+                    <strong>Compagnons<br>de l'Avenir</strong>
+                </div>
+            </div>
+
+            <div class="connector-line horizontal hidden" id="root-connector"></div>
+
+            <div class="branch-column hidden" id="level-1-wrapper">
+                
+                <div class="branch-item">
+                    <div class="node-group">
+                        <div class="connector-line vertical-top"></div> <div class="mm-node level-1" onclick="toggleBranch('b1')">
+                            <span>🌲 Ressources</span>
+                        </div>
+                        <div class="connector-line horizontal-small hidden" id="line-b1"></div>
+                    </div>
+                    <div class="leaves-column hidden" id="leaves-b1">
+                        <div class="mm-node level-2">Bois Forêt<br>de Chantilly</div>
+                        <div class="mm-node level-2">Matériaux<br>Biosourcés</div>
+                    </div>
+                </div>
+
+                <div class="branch-item">
+                    <div class="node-group">
+                        <div class="connector-line vertical-middle"></div> <div class="mm-node level-1" onclick="toggleBranch('b2')">
+                            <span>🔨 Fabrication</span>
+                        </div>
+                        <div class="connector-line horizontal-small hidden" id="line-b2"></div>
+                    </div>
+                    <div class="leaves-column hidden" id="leaves-b2">
+                        <div class="mm-node level-2">Atelier<br>Prison</div>
+                        <div class="mm-node level-2">Formation<br>Certifiante</div>
+                    </div>
+                </div>
+
+                <div class="branch-item">
+                    <div class="node-group">
+                        <div class="connector-line vertical-bottom"></div> <div class="mm-node level-1" onclick="toggleBranch('b3')">
+                            <span>❤️ Impact & Vie</span>
+                        </div>
+                        <div class="connector-line horizontal-small hidden" id="line-b3"></div>
+                    </div>
+                    <div class="leaves-column hidden" id="leaves-b3">
+                        <div class="mm-node level-2">Mobilier<br>Police / Écoles</div>
+                        <div class="mm-node level-2">Anti-Récidive<br>& Insertion</div>
+                        <div class="mm-node level-2">Recyclage<br>(Copeaux)</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
         <section id="cycle" class="section bg-light reveal">
             <div class="section-header">
                 <h2>Le Cycle Vertueux</h2>

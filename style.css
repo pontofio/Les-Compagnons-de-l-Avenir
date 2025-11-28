@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
 /* FONT + RESET */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -177,3 +179,185 @@ footer {
     .main-container { margin-top: -50px; }
     .bg-light { margin-left: -20px; margin-right: -20px; padding-left: 20px; padding-right: 20px; }
 }
+
+/* --- ORGANIGRAMME HORIZONTAL (TREE MAP) --- */
+
+.tree-wrapper {
+    width: 100%;
+    overflow-x: auto; /* Permet le scroll sur petit écran */
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.tree-container {
+    display: flex;
+    align-items: center; /* Centre verticalement la racine par rapport aux enfants */
+    padding: 20px;
+}
+
+/* --- NOEUDS (NODES) --- */
+.mm-node {
+    padding: 12px 20px;
+    border-radius: 6px; /* Coins légèrement arrondis comme l'image */
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    white-space: nowrap; /* Empêche le texte de casser bizarrement */
+    position: relative;
+    z-index: 2;
+}
+
+/* Racine (Bleu/Vert foncé) */
+.root-node {
+    background: #10B981; /* Ton vert principal */
+    color: white;
+    font-size: 1.1rem;
+    text-align: center;
+    border: 2px solid #10B981;
+}
+.root-node:hover { background: #059669; transform: scale(1.05); }
+
+/* Niveau 1 (Orange/Jaune dans ton image -> Ici Blanc bordure Verte) */
+.level-1 {
+    background: white;
+    border: 2px solid #fbbf24; /* Jaune/Orange pour rappeler ton image ref */
+    color: #333;
+    min-width: 140px;
+}
+.level-1:hover { background: #fffbeb; border-color: #f59e0b; }
+.level-1.active { background: #fbbf24; color: white; }
+
+/* Niveau 2 (Feuilles) */
+.level-2 {
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    font-size: 0.85rem;
+    color: #555;
+    margin-bottom: 8px; /* Espace entre les feuilles */
+    margin-left: 20px; /* Décalage pour laisser place aux traits */
+    position: relative;
+}
+.level-2:last-child { margin-bottom: 0; }
+
+/* --- CONNECTEURS (LES LIGNES) --- */
+
+/* Ligne horizontale Racine -> Colonne 1 */
+.connector-line.horizontal {
+    width: 40px;
+    height: 2px;
+    background: #ccc;
+    transition: width 0.5s;
+}
+
+.connector-line.horizontal-small {
+    width: 20px;
+    height: 2px;
+    background: #ccc;
+}
+
+/* Colonne qui contient les branches */
+.branch-column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+/* Chaque ligne de branche */
+.branch-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 10px 0; /* Espace vertical entre les branches */
+}
+
+/* Le groupe [Trait Vertical + Noeud + Trait Horizontal] */
+.node-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* --- DESSIN DES TRAITS VERTICAUX (L'ACCOLADE) --- */
+/* On utilise des pseudo-éléments ou des bordures pour faire le "E" */
+
+.branch-column::before {
+    content: '';
+    position: absolute;
+    top: 50px; /* Ajustement approximatif selon hauteur 1er élément */
+    bottom: 50px; /* Ajustement selon hauteur dernier élément */
+    left: 0;
+    width: 2px;
+    background: #ccc;
+    /* Ce trait relie le haut et le bas */
+}
+
+/* Ajustement spécifique pour que les traits touchent bien les boites */
+.node-group::before {
+    content: '';
+    position: absolute;
+    left: -40px; /* Recule vers la gauche */
+    width: 40px;
+    height: 2px;
+    background: #ccc;
+    top: 50%;
+}
+
+/* Colonne des feuilles (Niveau 2) */
+.leaves-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-left: 2px solid #ccc; /* La ligne verticale des feuilles */
+    padding-left: 0; 
+    margin-left: 0;
+}
+
+.level-2::before {
+    content: '';
+    position: absolute;
+    left: -20px; /* Trait horizontal vers le parent */
+    top: 50%;
+    width: 20px;
+    height: 2px;
+    background: #ccc;
+}
+
+/* --- ANIMATIONS (Cacher/Montrer) --- */
+.hidden {
+    opacity: 0;
+    max-width: 0;
+    overflow: hidden;
+    transform: translateX(-20px);
+    pointer-events: none;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Transition douce */
+.leaves-column, .branch-column, .connector-line {
+    transition: all 0.4s ease-in-out;
+}
+
+/* Correctif pour les traits verticaux : 
+   On les gère dynamiquement ou on simplifie avec une bordure gauche sur le container */
+.branch-column {
+    border-left: 2px solid #ccc;
+    padding-left: 40px; /* Espace pour les traits horizontaux */
+    margin-left: -2px; /* Pour coller au connecteur précédent */
+}
+
+.branch-item::before {
+    content: '';
+    position: absolute;
+    left: -40px; /* Doit toucher la bordure gauche du container */
+    top: 50%;
+    width: 40px;
+    height: 2px;
+    background: #ccc;
+}
+
+/* Cas particulier : masquer le trait vertical qui dépasse en haut et en bas */
+/* C'est complexe en CSS pur, on va garder une barre verticale continue simple (style bracket) */
