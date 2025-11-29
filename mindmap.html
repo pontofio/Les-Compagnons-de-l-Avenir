@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les Compagnons de l’Avenir</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<section id="cross-flow-map" class="section reveal">
+    <div class="section-header">
+        <h2>L'Écosystème Global</h2>
+        <p class="subtitle">Cliquez sur les éléments affichés pour révéler la suite du parcours...</p>
+    </div>
+
+    <div class="cross-map-container">
+        
+        <div class="map-node vertical-node start-node" id="node-prison" data-step="prison" data-next="atelier">
+            <span class="icon">🏢</span>
+            <div class="node-text">
+                <strong>Incarcération</strong>
+                <small>Centre Pénitentiaire</small>
+            </div>
+            <span class="click-instruction">Cliquez ici 👇</span>
+        </div>
+
+        <div class="arrow-vertical step-hidden" id="arrow-to-atelier-v">↓</div>
+
+        <div class="horizontal-row">
+            
+            <div class="map-node horizontal-node start-node" id="node-ressource" data-step="ressource" data-next="atelier">
+                <span class="icon">🌲</span>
+                <div class="node-text">
+                    <strong>Ressource</strong>
+                    <small>Bois Local</small>
+                </div>
+            </div>
+
+            <div class="arrow-horizontal step-hidden" id="arrow-to-atelier-h">➜</div>
+
+            <div class="map-node center-hub step-hidden" id="node-atelier" data-step="atelier" data-next="usage">
+                <span class="hub-icon">🔨</span>
+                <div class="node-text">
+                    <strong>L'ATELIER</strong>
+                    <small>Fabrication &<br>Formation</small>
+                </div>
+            </div>
+
+            <div class="arrow-horizontal step-hidden" id="arrow-to-usage">➜</div>
+
+            <div class="map-node horizontal-node step-hidden" id="node-usage" data-step="usage" data-next="decision">
+                <span class="icon">🏛️</span>
+                <div class="node-text">
+                    <strong>Usage</strong>
+                    <small>Ville & Écoles</small>
+                </div>
+            </div>
+
+            <div class="arrow-horizontal step-hidden" id="arrow-to-decision">➜</div>
+
+            <div class="decision-group step-hidden" id="group-decision">
+                <div class="map-node diamond-decision" id="node-decision" data-step="decision" data-next="branches">
+                    <span>?</span>
+                </div>
+                <div class="decision-branches step-hidden" id="group-branches">
+                    <div class="branch-up" data-step="reparation" data-next="sortie">
+                        <span class="branch-label">Réparation ⤴</span>
+                    </div>
+                    <div class="branch-down" data-step="copeaux" data-next="sortie">
+                        <span class="branch-label">⤵ Copeaux</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="arrow-vertical step-hidden" id="arrow-to-sortie">↓</div>
+
+        <div class="map-node vertical-node step-hidden" id="node-sortie" data-step="sortie">
+            <span class="icon">🎓</span>
+            <div class="node-text">
+                <strong>La Sortie</strong>
+                <small>Insertion & Avenir</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="cross-details" class="cross-details-box hidden-box">
+        <div class="details-header">
+            <h3 id="cd-title">Détails de l'étape</h3>
+        </div>
+        <div class="details-body">
+            <div class="d-col d-matter">
+                <h4>📦 Flux Matière</h4>
+                <p id="cd-matter">...</p>
+            </div>
+            <div class="d-col d-human">
+                <h4>🤝 Flux Humain</h4>
+                <p id="cd-human">...</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+</html>
