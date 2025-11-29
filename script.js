@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'asso': {
             title: "🤝 La Solution : Les Compagnons",
-            text: "<strong>Le Trait d'Union :</strong> L'association crée un CFA Menuiserie directement DANS la prison.<br><br><strong>L'Action :</strong> Nous transformons le bois local grâce au travail des détenus, qui acquièrent de vraies compétences."
+            text: "<strong>Le Trait d'Union :</strong> L'association crée un formation Menuiserie directement DANS la prison.<br><br><strong>L'Action :</strong> Nous transformons le bois local grâce au travail des détenus, qui acquièrent de vraies compétences."
         },
         'public': {
             title: "🏛️ L'Usage : Service Public",
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         'final': {
             title: "🎓 L'Objectif Final : L'Avenir",
-            text: "<strong>Le Résultat :</strong> Grâce à ce circuit, le détenu sort avec un diplôme (Titre Pro) et une expérience.<br><br><strong>Gagnant-Gagnant :</strong> L'Agglo a ses meubles, l'homme a son avenir. La réinsertion est réussie."
+            text: "<strong>Le Résultat :</strong> Grâce à ce circuit, le détenu sort avec un formation et une expérience.<br><br><strong>Gagnant-Gagnant :</strong> L'Agglo a ses meubles, l'homme a son avenir. La réinsertion est réussie."
         }
     };
 

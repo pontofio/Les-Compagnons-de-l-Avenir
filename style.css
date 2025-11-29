@@ -309,3 +309,30 @@ footer { padding: 50px 20px; text-align: center; color: white; font-size: 0.9rem
     width: auto;  /* Garde les proportions */
     object-fit: contain;
 }
+
+
+/* Style pour le logo centré dans les en-têtes de section */
+.section-logo {
+    width: 100px;        /* Taille ajustée pour ne pas être trop imposante */
+    height: auto;
+    margin-bottom: 20px; /* Espace entre le logo et le titre */
+    display: block;
+    margin-left: auto;   /* Centrage horizontal */
+    margin-right: auto;
+}
+
+/* À ajouter dans style.css */
+.nav-logo img { height: 40px; width: auto; margin-right: 10px; vertical-align: middle; }
+.section-logo { width: 100px; height: auto; display: block; margin: 0 auto 20px auto; }
+/* --- FIX : Empêcher le hub central de devenir clair au clic --- */
+.map-node.center-hub.active {
+    background-color: #10B981; /* Force le fond à rester vert foncé */
+    color: white;              /* Garde le texte blanc */
+    border-color: #047857;     /* Bordure un peu plus foncée pour le style */
+}
+
+/* S'assure que le texte interne reste bien blanc */
+.map-node.center-hub.active .node-text strong,
+.map-node.center-hub.active .node-text small {
+    color: white;
+}
