@@ -69,6 +69,5 @@ Projet réalisé pour le **Hackathon EuraBIOECONOMY 2025**.
   * **Thématique :** Comment augmenter l'usage de produits biosourcés en collectivité ?
   * **Partenaires évoqués :** ITII Picardie, UniLaSalle, Centre Pénitentiaire de Beauvais.
 
------
 
 *© 2025 - Les Compagnons de l'Avenir*
