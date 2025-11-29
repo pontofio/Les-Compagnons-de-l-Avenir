@@ -224,3 +224,80 @@ footer { padding: 50px 20px; text-align: center; color: white; font-size: 0.9rem
 @media (max-width: 600px) {
     .team-grid { grid-template-columns: 1fr; } /* 1 par ligne sur mobile */
 }
+
+/* =========================================
+   9. PAGE CONTACT DÉDIÉE
+   ========================================= */
+
+/* Conteneur global de la section contact */
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr; /* Colonne infos plus petite que le formulaire */
+    gap: 50px;
+    align-items: start;
+}
+
+/* --- Bloc Infos (Gauche) --- */
+.contact-info-box {
+    background: #10B981; /* Fond Vert */
+    color: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+}
+
+.contact-info-box h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.contact-info-box p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.info-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+}
+
+.info-text strong {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.info-text a {
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+/* --- Bloc Formulaire (Droite) --- */
+.contact-form-box {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+}
