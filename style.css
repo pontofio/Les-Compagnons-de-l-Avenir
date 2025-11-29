@@ -301,3 +301,11 @@ footer { padding: 50px 20px; text-align: center; color: white; font-size: 0.9rem
         grid-template-columns: 1fr; /* Une seule colonne sur mobile */
     }
 }
+
+/* Ajoutez ceci dans style.css */
+
+.nav-logo img {
+    height: 50px; /* Ajuste la hauteur pour rentrer dans la barre */
+    width: auto;  /* Garde les proportions */
+    object-fit: contain;
+}
